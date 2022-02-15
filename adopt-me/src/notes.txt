@@ -1,0 +1,10 @@
+app is a component which we can use it anywhere.
+
+we don't need to write a new app component next time
+
+we can use app component as a rubber stamp.
+if we want to stamp it anywhere we can use it.
+
+class and instance - rubber stamp and individual stamp of the rubber stamp
+
+
