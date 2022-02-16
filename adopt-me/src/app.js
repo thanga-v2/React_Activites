@@ -1,14 +1,12 @@
-// declaring an array of function
-// creating a pet component
-const Pet = () => {
-  return React.createElement("div", {}, [
-    // below is array of components to render
-    React.createElement("div", {}, "Cat"),
-    React.createElement("h3", {}, props.name),
-    React.createElement("h3", {}, props.animal),
-    React.createElement("h3", {}, props.breed),
-  ]);
-};
+// we will get error if below gets un commented
+//* global React ReactDOM */
+
+
+import React from "react";
+import  ReactDOM  from "react-dom";
+import Pet from "./pet";
+
+
 const App = () => {
   // this is an app component
   // just like rubber stamp
