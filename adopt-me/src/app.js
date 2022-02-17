@@ -5,6 +5,7 @@
 //import React from "react";
 import  ReactDOM  from "react-dom";
 import Pet from "./pet";
+import SearchParams from "./SearchParams";
 
 
 // const App = () => {
@@ -32,19 +33,30 @@ import Pet from "./pet";
 
 // rewriting the above app component in JSX
 
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Adopt me !!!!</h1>
+//       <Pet name = "Luna" animal = "dog" breed = "husky">fun and working</Pet>
+//       <Pet name = "Kunal" animal = "Cat" breed = "Mewo" />
+//       <Pet name = "Haran" animal = "Cow" breed = "Holy"> i am the children</Pet>
+//       <h2 >below is place using you can add input</h2>
+//       <input />
+//     </div>
+//   )
+// }
+
 const App = () => {
   return (
     <div>
-      <h1>Adopt me !!!!</h1>
-      <Pet name = "Luna" animal = "dog" breed = "husky">fun and working</Pet>
-      <Pet name = "Kunal" animal = "Cat" breed = "Mewo" />
-      <Pet name = "Haran" animal = "Cow" breed = "Holy"> i am the children</Pet>
-      <h2 >below is place using you can add input</h2>
-      <input />
+      <h1>First App</h1>
+      <SearchParams/>
+      <input placeholder="type" />
     </div>
   )
 }
 
 //replace it to app component after making all the changes
 ReactDOM.render(<App />, document.getElementById("root"));
-ReactDOM.render(<App />, document.getElementById("root1"));
+<input />
+//ReactDOM.render(<App />, document.getElementById("root1"));

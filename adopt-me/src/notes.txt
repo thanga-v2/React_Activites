@@ -60,3 +60,11 @@ React reads these objects and uses them to construct the DOM and keep it up to d
 
 
 
+Every component is a rubber stamp.
+
+
+Hooks - two way binding between User and DOM.
+
+Hooks maintains the state.
+
+Two way binding - Changes in UI, updates the JS props and Changes in JS props updates the UI.
