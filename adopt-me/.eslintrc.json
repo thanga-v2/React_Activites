@@ -4,6 +4,7 @@
         "plugin:import/errors",
         "plugin:react/recommended",
         "plugin:jsx-a11y/recommended", 
+        "plugin:react-hooks/recommended",
         "prettier"],
 
         // removing the below will throw an error in the components wherever we import react
