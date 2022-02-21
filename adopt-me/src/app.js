@@ -6,6 +6,8 @@
 import  ReactDOM  from "react-dom";
 import Pet from "./pet";
 import SearchParams from "./SearchParams";
+import TestParams from "./Testparams";
+import testParams from "./Testparams";
 
 
 // const App = () => {
@@ -52,11 +54,23 @@ const App = () => {
       <h1>First App</h1>
       <SearchParams/>
       <input placeholder="type" />
+      <h2>Test</h2>
     </div>
   )
+}
+
+const Additional = () => {
+  return (
+    <div>
+    <TestParams/>
+  </div>
+
+  )
+
 }
 
 //replace it to app component after making all the changes
 ReactDOM.render(<App />, document.getElementById("root"));
 <input />
+ReactDOM.render(<Additional />, document.getElementById("root1"));
 //ReactDOM.render(<App />, document.getElementById("root1"));
