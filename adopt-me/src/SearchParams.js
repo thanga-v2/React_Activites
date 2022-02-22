@@ -75,7 +75,12 @@ const SearchParams = () => {
     }
     return(
         <div className="search-params">
-            <form>
+            <form
+            onSubmit={e => {
+                e.preventDefault();
+                requestPets();
+            }}
+            >
                 <label htmlFor="location">
                     Location
                     <input id="location" onChange={e => setLocation(e.target.value)} value={location} placeholder = "Location"/>
@@ -140,6 +145,7 @@ const SearchParams = () => {
                     </select>
                 </label>
             </form>
+
             {
                 pets.map(pet => (
                     <Pet name={pet.name} 
@@ -148,6 +154,8 @@ const SearchParams = () => {
                     key={pet.id}/>
                 ))
             }
+
+
         </div>
     )
 }

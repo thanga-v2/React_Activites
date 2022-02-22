@@ -1,41 +1,32 @@
-// custom hooks
-
 import { useState, useEffect } from "react";
 
+const localCache = {};
 
-export default function userBreedList(animal){
-    const[breedList,setBreedList] = useState([]);
-    const[status,setStatus] = useState('unloaded');
+export default function useBreedList(animal) {
+  const [breedList, setBreedList] = useState([]);
+  const [status, setStatus] = useState("unloaded");
 
+  useEffect(() => {
+    if (!animal) {
+      setBreedList([]);
+    } else if (localCache[animal]) {
+      setBreedList(localCache[animal]);
+    } else {
+      requestBreedList();
+    }
 
-    // adding useEffect
+    async function requestBreedList() {
+      setBreedList([]);
+      setStatus("loading");
+      const res = await fetch(
+        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
+      );
+      const json = await res.json();
+      localCache[animal] = json.breeds || [];
+      setBreedList(localCache[animal]);
+      setStatus("loaded");
+    }
+  }, [animal]);
 
-    useEffect( () => {
-        if(!animal){
-            setBreedList([]);
-        }else if (localcache[animal]){
-            setBreedList(localcache[animal]);
-        }else {
-            reqBreedList(animal);
-        }
-        async function reqBreedList() {
-            setBreedList([]);
-            setStatus('loading');
-    
-            const res = await fetch(`https://pets-v2.dev-apis.com/breeds?animal=${animal}`);
-            
-            const json = await res.json();
-            console.log("test on custom hooks",json.breeds);   
-    
-            localcache[animal] = json.breeds || [];
-            setBreedList(localcache[animal]);
-            setStatus('loaded')
-            
-    
-        }
-    },[animal])
-
-    return [breedList,status]
+  return [breedList, status];
 }
-const localcache = {};
-
