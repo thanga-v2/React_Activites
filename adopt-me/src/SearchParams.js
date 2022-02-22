@@ -8,6 +8,9 @@ import { useState,useEffect } from "react"
 import Pet from './pet'
 // creating a component
 
+//importing custom hooks
+import userBreedList from "./useBreedList";
+
 const SearchParams = () => {
     // hook
     // first time default values - seattle,wa
@@ -20,8 +23,7 @@ const SearchParams = () => {
 
     // we are going to get this array from API
     const [pets,SetPets] = useState([]);
-    const breeds = [];
-    const testvalues=[];
+    const breeds = userBreedList(animal);
     console.log("Location is ", location);
     console.log("changes in state - ",teststate);
     console.log("animal you chose -",animal);
