@@ -27,8 +27,10 @@ const SearchParams = () => {
     console.log("Location is ", location);
     console.log("changes in state - ",teststate);
     console.log("animal you chose -",animal);
-    const ANIMALS = ['reptile','rabbit','dog','cow'];
+    const ANIMALS = ['bird','reptile','rabbit','dog','cow'];
     const TEST_VALUES = ['USER1','USER2','USER3'];
+    const[param,setParam] = useState("");
+    const DO_SOMETHING=['MESS','RUN'];
 
     // below takes the infintie run
     // useEffect( () => {
@@ -95,12 +97,34 @@ const SearchParams = () => {
                     >
                         <option/>{
                             ANIMALS.map(animal => (
+                                // returning option
                               <option value={animal} key={animal}>
                                   {animal}
                               </option>  
                             ))
                         }
+                        <option/>
                         </select>
+                </label>
+                <label>
+                    dummy
+                    <select 
+                    id = "dummy">
+                        // below gives an empty 
+                        <option/>
+                        // below to add elements in the drop down
+                        {
+                            DO_SOMETHING.map(element => (
+                                <option
+                                    // below is the element in drop down 
+                                    // if we remove below, dropdown will be empty
+                                    // no two key should be same
+                                key = {element}>
+                                    {element}
+                                </option>
+                            ))
+                        }
+                    </select>
                 </label>
                 <label htmlFor="breed">
                     Breed
