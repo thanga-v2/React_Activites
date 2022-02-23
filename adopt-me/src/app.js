@@ -4,6 +4,7 @@
 
 //import React from "react";
 import  ReactDOM  from "react-dom";
+import Lifecycle from "./LifeCycle";
 import Pet from "./pet";
 import SearchParams from "./SearchParams";
 import TestParams from "./Testparams";
@@ -69,8 +70,18 @@ const Additional = () => {
 
 }
 
+
+const Lifecycletest = () => {
+  return(
+    <div>
+      <Lifecycle/>    
+    </div>
+  )
+}
+
 //replace it to app component after making all the changes
 ReactDOM.render(<App />, document.getElementById("root"));
 <input />
 ReactDOM.render(<Additional />, document.getElementById("root1"));
-//ReactDOM.render(<App />, document.getElementById("root1"));
+// print in the logs to test below
+// ReactDOM.render(<Lifecycletest />, document.getElementById("root1"));

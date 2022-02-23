@@ -5,11 +5,12 @@
 import { useState,useEffect } from "react"
 // hook allows us to keep track of the state
 // useEffect is also a tyoe of hook, which gives side effects
+//importing custom hooks
+import userBreedList from "./useBreedList";
 import Pet from './pet'
 // creating a component
 
-//importing custom hooks
-import userBreedList from "./useBreedList";
+
 
 const SearchParams = () => {
     // hook
@@ -23,7 +24,9 @@ const SearchParams = () => {
 
     // we are going to get this array from API
     const [pets,SetPets] = useState([]);
-    const breeds = userBreedList(animal);
+    const [breeds] = userBreedList(animal);
+    // from custom hook
+    const [breedList] = userBreedList(animal);
     console.log("Location is ", location);
     console.log("changes in state - ",teststate);
     console.log("animal you chose -",animal);
@@ -47,6 +50,8 @@ const SearchParams = () => {
 
     // below runs only once. when we make change in pets, it re renders in setPets
     useEffect( () => {
+        // all of our asynch code
+        //console.log("is",animal)
         requestPets();
 
     },[])
@@ -172,6 +177,7 @@ const SearchParams = () => {
 
             {
                 pets.map(pet => (
+                    // we get a below pet component
                     <Pet name={pet.name} 
                     animal={pet.animal} 
                     breed={pet.breed}
