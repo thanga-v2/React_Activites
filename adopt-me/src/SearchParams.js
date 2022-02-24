@@ -7,7 +7,9 @@ import { useState,useEffect } from "react"
 // useEffect is also a tyoe of hook, which gives side effects
 //importing custom hooks
 import userBreedList from "./useBreedList";
+// removing the pet - component composition - scroll down last
 import Pet from './pet'
+import Results from "./Results";
 // creating a component
 
 
@@ -84,13 +86,20 @@ const SearchParams = () => {
         <div className="search-params">
             <form
             onSubmit={e => {
+                // prevents from submitting when we click enter
                 e.preventDefault();
                 requestPets();
             }}
             >
                 <label htmlFor="location">
                     Location
-                    <input id="location" onChange={e => setLocation(e.target.value)} value={location} placeholder = "Location"/>
+                    <input id="location" 
+                    onChange={e => setLocation(e.target.value)} 
+                    value={location} 
+                    placeholder = "Location"
+                    onFocus={(e) => {
+                        console.log('Focused on input',e);
+                      }}/>
                 </label>
                 <label htmlFor="animal">
                     Animal
@@ -175,7 +184,7 @@ const SearchParams = () => {
                 </label>
             </form>
 
-            {
+            {/* { // below is example of component composition
                 pets.map(pet => (
                     // we get a below pet component
                     <Pet name={pet.name} 
@@ -183,8 +192,8 @@ const SearchParams = () => {
                     breed={pet.breed}
                     key={pet.id}/>
                 ))
-            }
-
+            } */}
+            <Results pets={pets}/>
 
         </div>
     )

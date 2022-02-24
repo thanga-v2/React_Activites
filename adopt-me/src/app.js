@@ -56,6 +56,15 @@ const App = () => {
       <SearchParams/>
       <input placeholder="type" />
       <h2>Test</h2>
+
+      <Composition
+        left={<A/>}
+        right={<B/>}
+      />
+
+      <TestComposition 
+      test ={<A/>}
+      test_name = {<B/>} />
     </div>
   )
 }
@@ -79,9 +88,58 @@ const Lifecycletest = () => {
   )
 }
 
+const Composition = (props) => {
+  return (
+    <div>
+      <div>
+          {props.left}
+      </div>
+      <div>
+        {props.right}
+      </div>
+    </div>
+  )
+}
+
+
+const TestComposition = (props) => {
+return(
+  <div>
+    <div>
+      {props.test}
+    </div>
+    <div>
+      {props.test_name}
+    </div>
+  </div>
+)
+}
+
+const C = () => {
+  return(
+    <div name = "A">Component c</div>
+  )
+}
+
+
+const A = () => {
+  return(
+    <div name = "A">Component A</div>
+  )
+}
+
+const B = () => {
+  return(
+    <div name ="B">Component B</div>
+  )
+}
+
 //replace it to app component after making all the changes
 ReactDOM.render(<App />, document.getElementById("root"));
 <input />
 ReactDOM.render(<Additional />, document.getElementById("root1"));
 // print in the logs to test below
-// ReactDOM.render(<Lifecycletest />, document.getElementById("root1"));
+ReactDOM.render(<Lifecycletest />, document.getElementById("root1"));
+
+// Component composition
+ReactDOM.render(<Composition />, document.getElementById("root1"));
